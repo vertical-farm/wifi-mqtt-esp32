@@ -239,4 +239,10 @@ void handleCardDetected() {
 
     // The reader will be enabled again after DELAY_BETWEEN_CARDS ms will pass.
     readerDisabled = true;
+
+    //TODO
+    //call function that publishes code to broker
+}
+void sendCode(){
+  
 }
