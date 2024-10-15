@@ -10,7 +10,7 @@
 #define SSID          "IB3"
 #define PWD           "ingenieursbeleving3"
 
-#define MQTT_SERVER   "10.128.48.25"
+#define MQTT_SERVER   "broker.hivemq.com"
 #define MQTT_PORT     1883
 
 #define LED_PIN       2
@@ -210,6 +210,8 @@ void handleCardDetected() {
     success = nfc.readDetectedPassiveTargetID(uid, &uidLength);
     Serial.println(success ? "Read successful" : "Read failed (not a card?)");
 
+    client.publish("CasAndres/uid", uid, uidLength);
+
     if (success) {
       // Display some basic information about the card
       //Serial.println("Found an ISO14443A card");
@@ -245,4 +247,5 @@ void handleCardDetected() {
 }
 void sendCode(){
   
+
 }
